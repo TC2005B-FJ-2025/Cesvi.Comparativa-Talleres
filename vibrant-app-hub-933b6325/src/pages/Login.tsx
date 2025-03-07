@@ -6,33 +6,38 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { Loader2, User, Lock } from "lucide-react";
 import { useState } from "react";
-import { auth } from "@/lib/auth";
-import { useToast } from "@/components/ui/use-toast";
+import logo from "/logos/logo-cesvi.png";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    rememberMe: false,
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckboxChange = (checked: boolean) => {
+    setFormData((prev) => ({ ...prev, rememberMe: checked }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      await auth.login(email, password);
-      toast({
-        title: "¡Bienvenido!",
-        description: "Has iniciado sesión correctamente.",
-      });
+      // Simular login
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      toast.success("Sesión iniciada correctamente");
       navigate("/dashboard");
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "Credenciales incorrectas.",
-        variant: "destructive",
-      });
+      console.error("Error de autenticación:", error);
+      toast.error("Error al iniciar sesión");
     } finally {
       setLoading(false);
     }
@@ -43,11 +48,7 @@ const Login = () => {
       {/* Header con logo */}
       <div className="w-full bg-[#003366] py-6 flex justify-center">
         <div className="container flex justify-center">
-          <img
-            src="/lovable-uploads/eb8bd52e-6e21-45f5-93d6-adc55be5b255.png"
-            alt="CESVI MÉXICO"
-            className="h-14"
-          />
+          <img src={logo} alt="CESVI MÉXICO" className="h-14" />
         </div>
       </div>
 
@@ -71,13 +72,13 @@ const Login = () => {
               <div className="space-y-4">
                 <div className="relative">
                   <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Correo electrónico"
+                    id="username"
+                    name="username"
+                    type="text"
+                    placeholder="Username"
                     required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={formData.username}
+                    onChange={handleChange}
                     className="pl-10 h-12"
                   />
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -88,10 +89,10 @@ const Login = () => {
                     id="password"
                     name="password"
                     type="password"
-                    placeholder="Contraseña"
+                    placeholder="Password"
                     required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={formData.password}
+                    onChange={handleChange}
                     className="pl-10 h-12"
                   />
                   <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -100,7 +101,11 @@ const Login = () => {
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <Checkbox id="rememberMe" checked={false} />
+                  <Checkbox
+                    id="rememberMe"
+                    checked={formData.rememberMe}
+                    onCheckedChange={handleCheckboxChange}
+                  />
                   <label
                     htmlFor="rememberMe"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -118,7 +123,8 @@ const Login = () => {
                 className="w-full h-12 font-bold bg-[#003366] hover:bg-[#002244]"
                 disabled={loading}
               >
-                {loading ? "Iniciando sesión..." : "Iniciar sesión"}
+                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                LOG-IN
               </Button>
             </form>
           </div>
