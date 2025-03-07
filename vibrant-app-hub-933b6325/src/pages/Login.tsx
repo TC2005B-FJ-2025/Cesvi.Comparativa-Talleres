@@ -52,7 +52,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[url('/lovable-uploads/eb8bd52e-6e21-45f5-93d6-adc55be5b255.png')] bg-cover bg-center">
+    <div className="min-h-screen flex flex-col bg-[url('/logos/bellasArtesNoche.jpg')] bg-cover bg-center">
       {/* Header con logo */}
       <div className="w-full bg-[#003366] py-6 flex justify-center">
         <div className="container flex justify-center">

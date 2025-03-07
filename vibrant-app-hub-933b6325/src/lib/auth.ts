@@ -16,6 +16,8 @@ export interface LoginResponse {
 
 export const auth = {
   async login(email: string, password: string): Promise<LoginResponse> {
+    await api.get("/sanctum/csrf-cookie");
+
     const response = await api.post<LoginResponse>("/login", {
       email,
       password,
@@ -29,6 +31,8 @@ export const auth = {
     email: string,
     password: string
   ): Promise<LoginResponse> {
+    await api.get("/sanctum/csrf-cookie");
+
     const response = await api.post<LoginResponse>("/register", {
       name,
       email,
