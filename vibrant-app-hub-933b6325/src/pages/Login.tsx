@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
 import { Loader2, User, Lock } from 'lucide-react';
 import { useState } from 'react';
+import logo from '/logos/logo-cesvi.png';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ const Login = () => {
       <div className="w-full bg-[#003366] py-6 flex justify-center">
         <div className="container flex justify-center">
           <img 
-            src="/lovable-uploads/eb8bd52e-6e21-45f5-93d6-adc55be5b255.png" 
+            src={logo}
             alt="CESVI MÉXICO" 
             className="h-14"
           />
