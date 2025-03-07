@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -13,32 +12,32 @@ const Login = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    rememberMe: false
+    username: "",
+    password: "",
+    rememberMe: false,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleCheckboxChange = (checked: boolean) => {
-    setFormData(prev => ({ ...prev, rememberMe: checked }));
+    setFormData((prev) => ({ ...prev, rememberMe: checked }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
       // Simular login
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      toast.success('Sesión iniciada correctamente');
-      navigate('/dashboard');
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      toast.success("Sesión iniciada correctamente");
+      navigate("/dashboard");
     } catch (error) {
-      console.error('Error de autenticación:', error);
-      toast.error('Error al iniciar sesión');
+      console.error("Error de autenticación:", error);
+      toast.error("Error al iniciar sesión");
     } finally {
       setLoading(false);
     }
@@ -56,7 +55,7 @@ const Login = () => {
           />
         </div>
       </div>
-      
+
       {/* Contenido principal */}
       <main className="flex-1 flex items-center justify-center py-16">
         <div className="bg-white rounded-md shadow-lg w-full max-w-md overflow-hidden">
@@ -64,7 +63,7 @@ const Login = () => {
           <div className="bg-[#0099cc] text-white text-center py-4">
             <h1 className="text-xl font-bold">USER LOG-IN</h1>
           </div>
-          
+
           {/* Formulario */}
           <div className="p-8">
             <div className="flex justify-center mb-6">
@@ -72,7 +71,7 @@ const Login = () => {
                 <User className="h-12 w-12 text-gray-400" />
               </div>
             </div>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-4">
                 <div className="relative">
@@ -88,7 +87,7 @@ const Login = () => {
                   />
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                 </div>
-                
+
                 <div className="relative">
                   <Input
                     id="password"
@@ -103,16 +102,16 @@ const Login = () => {
                   <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                 </div>
               </div>
-              
+
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <Checkbox 
-                    id="rememberMe" 
-                    checked={formData.rememberMe} 
+                  <Checkbox
+                    id="rememberMe"
+                    checked={formData.rememberMe}
                     onCheckedChange={handleCheckboxChange}
                   />
-                  <label 
-                    htmlFor="rememberMe" 
+                  <label
+                    htmlFor="rememberMe"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     Remember me
@@ -122,9 +121,9 @@ const Login = () => {
                   Forgot Password?
                 </a>
               </div>
-              
-              <Button 
-                type="submit" 
+
+              <Button
+                type="submit"
                 className="w-full h-12 font-bold bg-[#003366] hover:bg-[#002244]"
                 disabled={loading}
               >
