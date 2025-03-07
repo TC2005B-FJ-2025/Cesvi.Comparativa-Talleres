@@ -1,18 +1,19 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Checkbox } from '@/components/ui/checkbox';
-import { toast } from 'sonner';
-import { Loader2, User, Lock } from 'lucide-react';
-import { useState } from 'react';
-import logo from '/logos/logo-cesvi.png';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "sonner";
+import { Loader2, User, Lock } from "lucide-react";
+import { useState } from "react";
+import logo from "/logos/logo-cesvi.png";
+import { auth } from "@/lib/auth";
 
 const Login = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
     rememberMe: false,
   });
@@ -31,13 +32,20 @@ const Login = () => {
     setLoading(true);
 
     try {
-      // Simular login
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await auth.login(formData.email, formData.password);
+
+      if (formData.rememberMe) {
+        // Store user preferences if remember me is checked
+        localStorage.setItem("rememberMe", "true");
+      }
+
       toast.success("Sesión iniciada correctamente");
       navigate("/dashboard");
     } catch (error) {
       console.error("Error de autenticación:", error);
-      toast.error("Error al iniciar sesión");
+      toast.error(
+        "Error al iniciar sesión. Por favor verifica tus credenciales."
+      );
     } finally {
       setLoading(false);
     }
@@ -48,11 +56,7 @@ const Login = () => {
       {/* Header con logo */}
       <div className="w-full bg-[#003366] py-6 flex justify-center">
         <div className="container flex justify-center">
-          <img 
-            src={logo}
-            alt="CESVI MÉXICO" 
-            className="h-14"
-          />
+          <img src={logo} alt="CESVI MÉXICO" className="h-14" />
         </div>
       </div>
 
@@ -76,12 +80,12 @@ const Login = () => {
               <div className="space-y-4">
                 <div className="relative">
                   <Input
-                    id="username"
-                    name="username"
-                    type="text"
-                    placeholder="Username"
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Email"
                     required
-                    value={formData.username}
+                    value={formData.email}
                     onChange={handleChange}
                     className="pl-10 h-12"
                   />
