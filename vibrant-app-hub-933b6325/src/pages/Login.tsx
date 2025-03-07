@@ -1,12 +1,12 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { toast } from "sonner";
-import { Loader2, User, Lock } from "lucide-react";
-import { useState } from "react";
-import logo from "/logos/logo-cesvi.png";
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
+import { toast } from 'sonner';
+import { Loader2, User, Lock } from 'lucide-react';
+import { useState } from 'react';
+import logo from '/logos/logo-cesvi.png';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -48,7 +48,11 @@ const Login = () => {
       {/* Header con logo */}
       <div className="w-full bg-[#003366] py-6 flex justify-center">
         <div className="container flex justify-center">
-          <img src={logo} alt="CESVI MÉXICO" className="h-14" />
+          <img 
+            src={logo}
+            alt="CESVI MÉXICO" 
+            className="h-14"
+          />
         </div>
       </div>
 
