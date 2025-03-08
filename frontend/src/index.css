@@ -130,7 +130,26 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Login Logo Img */
+  .h-14 {
+    width: auto;
+    height: 75px;
+  }
 }
 
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); */
+
+/* @import url('/fonts/Tw Cen MT Std Bold Cond.ttf'); */
+@font-face {
+  font-family: 'TwCenMTStd';
+  src: url('/Cesvi.Comparativa-Talleres/frontend/public/fonts/TwCenMTStd.otf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'TwCenMTStd';
+  src: url('/Cesvi.Comparativa-Talleres/frontend/public/fonts/TwCenMTStdBold.otf');
+  font-weight: bold;
+}
