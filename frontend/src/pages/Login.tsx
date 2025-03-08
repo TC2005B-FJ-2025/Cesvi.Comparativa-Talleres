@@ -6,8 +6,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { Loader2, User, Lock } from "lucide-react";
 import { useState } from "react";
-import logo from "/logos/logo-cesvi.png";
 import { auth } from "@/lib/auth";
+// === IMAGENES ===
+import logo from "/logos/logo-cesvi.png";
+import backgnd from "/img/cesviInstalaciones.jpg";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -52,11 +54,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[url('/logos/bellasArtesNoche.jpg')] bg-cover bg-center">
+    <div className="min-h-screen flex flex-col bg-cover bg-center h-screen" style={{backgroundImage: `url(${backgnd})`}}>
       {/* Header con logo */}
       <div className="w-full bg-[#003366] py-6 flex justify-center">
         <div className="container flex justify-center">
-          <img src={logo} alt="CESVI MÉXICO" className="h-14" />
+          <img src={logo} alt="CESVI MÉXICO" className="h-20" />
         </div>
       </div>
 
@@ -128,7 +130,7 @@ const Login = () => {
 
               <Button
                 type="submit"
-                className="w-full h-12 font-bold bg-[#003366] hover:bg-[#002244]"
+                className="w-full h-12 font-bold bg-[#003366] hover:bg-[#0099cc]"
                 disabled={loading}
               >
                 {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}

@@ -130,12 +130,6 @@
   .text-balance {
     text-wrap: balance;
   }
-
-  /* Login Logo Img */
-  .h-14 {
-    width: auto;
-    height: 75px;
-  }
 }
 
 /* Import Google Fonts */
