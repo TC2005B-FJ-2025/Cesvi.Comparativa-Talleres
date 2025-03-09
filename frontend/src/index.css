@@ -144,6 +144,12 @@
 
 @font-face {
   font-family: 'TwCenMTStd';
+  src: url('/Cesvi.Comparativa-Talleres/frontend/public/fonts/TwCenMTStdSemiMedium.otf');
+  font-weight: medium;
+}
+
+@font-face {
+  font-family: 'TwCenMTStd';
   src: url('/Cesvi.Comparativa-Talleres/frontend/public/fonts/TwCenMTStdBold.otf');
   font-weight: bold;
 }

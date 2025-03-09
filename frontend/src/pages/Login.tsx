@@ -54,11 +54,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-cover bg-center h-screen" style={{backgroundImage: `url(${backgnd})`}}>
+    <div className="min-h-screen flex flex-col bg-cover bg-center size-" style={{backgroundImage: `url(${backgnd})`}}>
       {/* Header con logo */}
-      <div className="w-full bg-[#003366] py-6 flex justify-center">
-        <div className="container flex justify-center">
-          <img src={logo} alt="CESVI MÉXICO" className="h-20" />
+      <div className="w-full bg-[#003366] flex justify-center  h-[95px]">
+        <div className="container flex justify-center items-center">
+          <img src={logo} alt="CESVI MÉXICO" className="h-[85px]" />
         </div>
       </div>
 
@@ -67,7 +67,7 @@ const Login = () => {
         <div className="bg-white rounded-md shadow-lg w-full max-w-md overflow-hidden">
           {/* Encabezado del formulario */}
           <div className="bg-[#0099cc] text-white text-center py-4">
-            <h1 className="text-xl font-bold">USER LOG-IN</h1>
+            <h1 className="text-xl font-medium">USER LOG-IN</h1>
           </div>
 
           {/* Formulario */}
