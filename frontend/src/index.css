@@ -130,12 +130,6 @@
   .text-balance {
     text-wrap: balance;
   }
-
-  /* Login Logo Img */
-  .h-14 {
-    width: auto;
-    height: 75px;
-  }
 }
 
 /* Import Google Fonts */
@@ -146,6 +140,12 @@
   font-family: 'TwCenMTStd';
   src: url('/Cesvi.Comparativa-Talleres/frontend/public/fonts/TwCenMTStd.otf');
   font-weight: normal;
+}
+
+@font-face {
+  font-family: 'TwCenMTStd';
+  src: url('/Cesvi.Comparativa-Talleres/frontend/public/fonts/TwCenMTStdSemiMedium.otf');
+  font-weight: medium;
 }
 
 @font-face {
