@@ -1,0 +1,62 @@
+name: 💡 Nueva Funcionalidad
+description: Sugerir una idea para este proyecto
+title: "[Feature]: "
+labels: ["enhancement"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¡Gracias por proponer una nueva funcionalidad! Por favor, llena la siguiente información para ayudarnos a entender mejor tu propuesta.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 🤔 Problema Relacionado
+      description: ¿Tu propuesta está relacionada con algún problema? Descríbelo.
+      placeholder: Me frustra cuando tengo que... / Sería mejor si...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 💭 Solución Propuesta
+      description: Describe la solución que te gustaría ver implementada
+      placeholder: Me gustaría que el sistema pudiera...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 🔄 Alternativas Consideradas
+      description: ¿Qué otras alternativas has considerado?
+      placeholder: También pensé en... pero...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 📊 Prioridad Sugerida
+      description: ¿Qué tan importante consideras esta funcionalidad?
+      options:
+        - Crítica (Bloqueante)
+        - Alta (Muy necesaria)
+        - Media (Sería útil)
+        - Baja (Nice to have)
+    validations:
+      required: true
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: 🎨 Mockups o Ejemplos
+      description: Si tienes mockups, ejemplos o referencias, agrégalos aquí
+      placeholder: Puedes arrastrar y soltar imágenes aquí
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: ℹ️ Contexto Adicional
+      description: Cualquier otra información que pueda ser útil
+      placeholder: Información adicional, casos de uso, etc.
