@@ -1,0 +1,81 @@
+name: 🐛 Reporte de Bug
+description: Crear un reporte para ayudarnos a mejorar
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¡Gracias por tomarte el tiempo de llenar este reporte de bug!
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: 📝 Descripción del Bug
+      description: Una descripción clara y concisa de lo que está sucediendo
+      placeholder: Cuando intento hacer X, sucede Y en lugar de Z...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 🔄 Pasos para Reproducir
+      description: ¿Cómo podemos reproducir este problema?
+      placeholder: |
+        1. Ir a '...'
+        2. Click en '....'
+        3. Scroll hasta '....'
+        4. Ver el error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: ✅ Comportamiento Esperado
+      description: ¿Qué esperabas que sucediera?
+      placeholder: Debería haber...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: 🌐 Navegador
+      description: ¿En qué navegadores has visto el problema?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Microsoft Edge
+        - Opera
+        - Otro
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 💻 Sistema Operativo
+      multiple: true
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - iOS
+        - Android
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 📸 Screenshots
+      description: Si es posible, agrega screenshots o videos para ayudar a explicar tu problema
+      placeholder: Puedes arrastrar y soltar imágenes aquí
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: ℹ️ Información Adicional
+      description: Cualquier otra información que pueda ser relevante
+      placeholder: Logs, contexto adicional, etc.
